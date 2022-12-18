@@ -24,13 +24,13 @@
     
 </head>
 
-<body class="bg-dark">
-<div class="container">
+<body class="bg-gray-100">
+<div class="container ">
 
 <!-- Outer Row -->
 <div class="row justify-content-center">
 
-    <div class="col-7">
+    <div class="col-7 py-5">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
@@ -58,10 +58,6 @@
                                     Login
                                 </button>
                             </form>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="<?= base_url('auth/regis'); ?>">Create an Account!</a>
-                            </div>
                         </div>
                     </div>
                 </div>

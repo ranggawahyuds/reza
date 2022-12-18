@@ -7,6 +7,6 @@ class dashboard extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'sl';
-		$this->load->view('templates/form',$data);
+		$this->load->view('/tampil',$data);
 	}
 }
