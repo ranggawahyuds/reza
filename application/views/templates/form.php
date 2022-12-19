@@ -35,7 +35,8 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">PEMILIHAN OSIS</h1>
                             </div>
-                            <form class="pilih" method="post" action="<?= base_url('auth/regis'); ?>" 
+                            <?= $this->session->flashdata('message'); ?>
+                            <form class="siswa" method="post" action="<?= base_url('auth/siswa'); ?>" 
                                 enctype="multipart/form-data">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="nama" name="nama" 
@@ -53,17 +54,17 @@
                                     <?= form_error('kelas', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-control-user" name="status_order" id="status_order"> 
-                                        <option value="">--->Status Order<---</option>
-                                        <option value="selesai">Selesai</option>
-                                        <option value="proses">Proses</option>
+                                    <select class="form-control form-control-user" name="jurusan" id="jurusan"> 
+                                        <option value="">--->Jurusan<---</option>
+                                        <option value="ipa">IPA</option>
+                                        <option value="ips">IPS</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-control-user" name="status_order" id="status_order"> 
-                                        <option value="">--->Status Order<---</option>
-                                        <option value="selesai">Selesai</option>
-                                        <option value="proses">reza</option>
+                                    <select class="form-control form-control-user" name="calon" id="calon"> 
+                                        <option value="">---->Calon<----</option>
+                                        <option value="joko & wati">Joko & Wati</option>
+                                        <option value="saipul & jaenab">Saipul & Jaenab</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">

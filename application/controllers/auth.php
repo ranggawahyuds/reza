@@ -36,7 +36,7 @@ class auth extends CI_Controller {
 
                     $this->session->set_userdata($data);
                     if ($user['username'] == 'admin') {
-                        redirect('auth/abs');
+                        redirect('dashboard');
                     } 
                 }    else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-message" role="alert">Wrong password!</div>');
@@ -51,6 +51,47 @@ class auth extends CI_Controller {
             redirect('auth');
         }
     }
+    public function siswa()
+    {
+        $this->form_validation->set_rules('nama', 'Nama', 'required', [
+            'required' => 'Nama Lengkap tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('nisn', 'Nisn', 'required|trim|numeric', [
+            'numeric' => 'hanya boleh di isi angka',
+            'required' => 'Nisn can not be empty',
+            'is_unique' => 'Nisn already registered!'
+        ]);
+        $this->form_validation->set_rules('kelas', 'Kelas', 'required|trim|numeric', [
+            'required' => 'Kelas tidak boleh kosong',
+            'numeric' => 'hanya boleh di isi angka',
+        ]);
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim', [
+            'required' => 'Jurusan tidak boleh kosong',
+        ]);
+        $this->form_validation->set_rules('calon', 'Calon', 'required|trim', [
+            'required' => 'Calon tidak boleh kosong',
+        ]);
+
+        if($this->form_validation->run() == false) {
+            $data['title'] = 'SL - REGISTRATION';
+            $this->load->view('templates/form', $data);
+
+
+        } else {
+            $data = [
+                'nama' => $this->input->post('nama', true),
+                'nisn' => $this->input->post('nisn', true),
+                'kelas' => $this->input->post('kelas', true),
+                'jurusan' => $this->input->post('jurusan', true),
+                'calon' => $this->input->post('calon', true),
+            ];
+            $this->ModelAdmin->simpanData($data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-message" 
+            role="alert">DATA PEMILIH BERHASIL DI SIMPAN !</div>');
+
+            redirect('auth/siswa');
+        }
+    }   
     public function logout()
     {
         $this->session->unset_userdata('username');
@@ -60,8 +101,5 @@ class auth extends CI_Controller {
             role="alert">Your account has been logout !</div>');
         redirect('auth');
     } 
-    public function abs()
-    {
-        $this->load->view('tampil');
-    }
+
 }

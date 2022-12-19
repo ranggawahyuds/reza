@@ -24,7 +24,7 @@
     <h1 align="center">PEMILIHAN KETUA OSIS</h1>
     <div class="button">
         <a href="<?= base_url('auth'); ?>"><button>ADMIN</button></a>
-        <a href="<?= base_url('auth'); ?>"><button>SISWA</button></a>
+        <a href="<?= base_url('siswa'); ?>"><button>SISWA</button></a>
     </div>
 
     <!-- Bootstrap core JavaScript-->
