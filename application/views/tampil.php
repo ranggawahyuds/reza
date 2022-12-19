@@ -9,22 +9,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - <?= $title; ?></title>
+    <title> <?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url('assets/'); ?>https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>css/mainpage.css" rel="stylesheet">
+
     <!-- Custom styles for this template-->
     
 
 </head>
 
 <body>
+    <?= $this->session->flashdata('message'); ?>
     <h1 align="center">PEMILIHAN KETUA OSIS</h1>
     <div class="button">
         <a href="<?= base_url('auth'); ?>"><button>ADMIN</button></a>
-        <a href="<?= base_url('siswa'); ?>"><button>SISWA</button></a>
+        <a href="<?= base_url('auth/siswa'); ?>"><button>SISWA</button></a>
     </div>
 
     <!-- Bootstrap core JavaScript-->

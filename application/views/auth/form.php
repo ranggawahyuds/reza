@@ -11,7 +11,7 @@
     <meta name="author" content="">
 
     <title>
-        SL - <?= $title; ?>
+        <?= $title; ?>
     </title>
 
     <!-- Custom fonts for this template-->
@@ -54,22 +54,24 @@
                                     <?= form_error('kelas', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-control-user" name="jurusan" id="jurusan"> 
+                                    <select class="form-control form-control-user" name="jurusan" id="jurusan" required> 
                                         <option value="">--->Jurusan<---</option>
                                         <option value="ipa">IPA</option>
                                         <option value="ips">IPS</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-control-user" name="calon" id="calon"> 
+                                    <select class="form-control form-control-user" name="calon" id="calon" required> 
                                         <option value="">---->Calon<----</option>
                                         <option value="joko & wati">Joko & Wati</option>
                                         <option value="saipul & jaenab">Saipul & Jaenab</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Selesai
-                                </button>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        Selesai
+                                    </button>
+                                </div>
+                                
                             </form>
 
                         </div>

@@ -15,7 +15,7 @@ class auth extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $data['title'] = 'SL - LOGIN';
             $data['user'] = '';
-            $this->load->view('templates/login', $data);
+            $this->load->view('auth/login', $data);
         } else {
             $this->_login();
         }
@@ -56,25 +56,19 @@ class auth extends CI_Controller {
         $this->form_validation->set_rules('nama', 'Nama', 'required', [
             'required' => 'Nama Lengkap tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('nisn', 'Nisn', 'required|trim|numeric', [
+        $this->form_validation->set_rules('nisn', 'Nisn', 'required|trim|numeric|is_unique[siswa.nisn]', [
             'numeric' => 'hanya boleh di isi angka',
-            'required' => 'Nisn can not be empty',
-            'is_unique' => 'Nisn already registered!'
+            'required' => 'Nisn tidak boleh kosong',
+            'is_unique' => 'Nisn sudah di gunakan'
         ]);
         $this->form_validation->set_rules('kelas', 'Kelas', 'required|trim|numeric', [
             'required' => 'Kelas tidak boleh kosong',
             'numeric' => 'hanya boleh di isi angka',
         ]);
-        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim', [
-            'required' => 'Jurusan tidak boleh kosong',
-        ]);
-        $this->form_validation->set_rules('calon', 'Calon', 'required|trim', [
-            'required' => 'Calon tidak boleh kosong',
-        ]);
 
         if($this->form_validation->run() == false) {
-            $data['title'] = 'SL - REGISTRATION';
-            $this->load->view('templates/form', $data);
+            $data['title'] = 'SISWA';
+            $this->load->view('auth/form', $data);
 
 
         } else {
@@ -99,7 +93,7 @@ class auth extends CI_Controller {
 
         $this->session->set_flashdata('message', '<div class="alert alert-success alert-message" 
             role="alert">Your account has been logout !</div>');
-        redirect('auth');
+        redirect('mainpage');
     } 
 
 }
