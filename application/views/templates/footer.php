@@ -2,7 +2,7 @@
     <footer class="sticky-footer bg-gray-100">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; All Right Served. Shoes Laundry Pontianak <?= date('Y'); ?></span>
+                <span>Copyright &copy; All Right Served. SMAXX Pontianak <?= date('Y'); ?></span>
             </div>
         </div>
     </footer>
