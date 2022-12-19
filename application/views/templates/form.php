@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="bg-gradient-dark">
+<body class="bg-gray-100">
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">

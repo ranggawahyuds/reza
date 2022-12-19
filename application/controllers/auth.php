@@ -5,9 +5,7 @@ class auth extends CI_Controller {
 
     public function index()
     {
-        if ($this->session->userdata('username')) {
-            redirect('dashboard');
-        }
+
         $this->form_validation->set_rules('username', 'Alamat Email', 'required|trim', [
             'required' => 'Email Harus diisi!!!',
         ]);
@@ -38,7 +36,7 @@ class auth extends CI_Controller {
 
                     $this->session->set_userdata($data);
                     if ($user['username'] == 'admin') {
-                        redirect('dashboard');
+                        redirect('auth/abs');
                     } 
                 }    else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-message" role="alert">Wrong password!</div>');
